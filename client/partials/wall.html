@@ -1,0 +1,16 @@
+<div ng-controller="wall_controller">
+    <h3>Hi, {{ cur_user.name }}</h3>
+    <a href="/logout">Logout</a>
+
+    <input ng-model="message.content" type="text" placeholder="Message it">
+    <button ng-click="post_message()">Post It Broast It</button>
+    <ul>
+        <li ng-repeat="message in messages">
+            <p>{{ message._user }}</p>
+            <p>{{ message.content }}</p>
+            <p>{{ message.createdAt }}</p>
+            <input ng-model="new_comment" type="text" placeholder="Comment It">
+            <button ng-click="post_comment(message._id)">Post Comment</button>
+        </li>
+    </ul>
+</div>

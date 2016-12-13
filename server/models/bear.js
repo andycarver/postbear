@@ -1,10 +1,10 @@
 let mongoose = require('mongoose')
 
-let bearSchema = new mongoose.Schema({
+let UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     }
-})
+}, {timestamps: true})
 
-mongoose.model('Bear', bearSchema)
+mongoose.model('User', UserSchema)
