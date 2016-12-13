@@ -7,18 +7,17 @@ app.factory('wall_factory', function($http) {
     }
 
     factory.post_comment = function(comment, message_id, cb) {
-        console.log(comment)
         let comment_pkg = {
             comment: comment,
             message_id: message_id
         }
-        $http.post('/post_comment', comment_pkg)
-        cb()
+        $http.post('/post_comment', comment_pkg).then(function(output){
+            cb()
+        })
     }
 
     factory.get_all = function(cb) {
         $http.get('/get_all').then(function(output) {
-            console.log(output.data.messages)
             cb(output.data.messages)
         })
     }
