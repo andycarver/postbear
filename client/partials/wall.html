@@ -1,22 +1,19 @@
 <div ng-controller="wall_controller">
     <h3>Hi, {{ cur_user.name }}</h3>
     <a href="/logout">Logout</a>
-
+    <p>Post a message:</p>
     <input ng-model="message.content" type="text" placeholder="Message it">
     <button ng-click="post_message()">Post It Broast It</button>
     <div ng-repeat="message in messages">
         <ul>
             <li>
-                <p>{{ message._user }}</p>
+                <p>{{ message._user }} - {{ message.createdAt | date:"h:mma MM/dd/yyyy" }}</p>
                 <p>{{ message.content }}</p>
-                <p>{{ message.createdAt }}</p>
             </li>
         </ul>
-        <form ng-controller="wall_controller"> 
-            <input ng-model="comment.content" type="text" placeholder="Comment It">
-            {{comment}}
+        <form ng-controller="wall_controller">
+            <input ng-model="comment.content" type="text" placeholder="Comment It"> {{comment}}
             <input type="submit" ng-click="post_comment(message._id)">
         </form>
     </div>
 </div>
-
