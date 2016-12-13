@@ -15,16 +15,11 @@ module.exports = (function() {
         post_comment: function(req, res) {
             User.findOne({_id: req.session.user._id}, function(err, user) {
                 Message.findOne({_id: req.body.message_id}, function(err, message) {
+                    console.log(req.body.comment)
                     let new_comment = new Comment(req.body.comment);
                     new_comment._user = user.name;
                     new_comment._message = message._id;
-                    new_comment.save(function(err) {
-                        message.comments.push(new_comment);
-                        message.save(function(err) {
-                            if (err) { console.log('oh shit'); }
-                            res.redirect('/')
-                        })
-                    })
+                    new_comment.save()
                 })
             })
         },

@@ -8,7 +8,7 @@ app.config(function($routeProvider){
     })
     .when('/wall', {
         templateUrl: 'partials/wall.html',
-        controller: 'login_controller',
+        controller: 'login_controller'
     })
     .otherwise('/login')
 

@@ -7,6 +7,7 @@ app.factory('wall_factory', function($http) {
     }
 
     factory.post_comment = function(comment, message_id, cb) {
+        console.log(comment)
         let comment_pkg = {
             comment: comment,
             message_id: message_id
